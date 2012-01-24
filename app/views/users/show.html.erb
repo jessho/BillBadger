@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>These are my credits:</b>
+  <% @user.credits.each do |c| %>
+  <br/><%= c.debtor.name %> owes me $<%= c.value %>
+  <% end %>
+</p>
+
+<p>
+  <b>These are my debts:</b>
+  <% @user.debts.each do |d| %>
+  <br/>I owe <%= d.creditor.name %> $<%= d.value %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
