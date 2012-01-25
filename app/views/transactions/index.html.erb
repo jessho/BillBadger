@@ -12,9 +12,9 @@
 
 <% @transactions.each do |transaction| %>
   <tr>
-    <td><%= transaction.value %></td>
-    <td><%= transaction.from_user_id %></td>
-    <td><%= transaction.to_user_id %></td>
+    <td>$<%= transaction.value %></td>
+    <td><%= link_to transaction.creditor.name, transaction.creditor %></td>
+    <td><%= link_to transaction.debtor.name, transaction.debtor %></td>
     <td><%= link_to 'Show', transaction %></td>
     <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
     <td><%= link_to 'Destroy', transaction, confirm: 'Are you sure?', method: :delete %></td>

@@ -13,17 +13,21 @@
 
   <div class="field">
     <%= f.label :value %><br />
-    <%= f.number_field :value %>
+    $<%= f.number_field :value %>
+  </div>
+  
+  <%= fields_for :name do |n|%>
+  <div class="field">
+    <%= n.label :from_user %><br />
+    <%= n.text_field :from_user %>
   </div>
   <div class="field">
-    <%= f.label :from_user_id %><br />
-    <%= f.number_field :from_user_id %>
+    <%= n.label :to_user %><br />
+    <%= n.text_field :to_user %>
   </div>
-  <div class="field">
-    <%= f.label :to_user_id %><br />
-    <%= f.number_field :to_user_id %>
-  </div>
+  <% end %>
+  
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Badgerize this bill"%>
   </div>
 <% end %>

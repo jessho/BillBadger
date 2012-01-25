@@ -40,8 +40,13 @@ class TransactionsController < ApplicationController
   # POST /transactions
   # POST /transactions.json
   def create
+    from_user = User.find_by_name(params[:name][:from_user])
+    to_user = User.find_by_name(params[:name][:to_user])
     @transaction = Transaction.new(params[:transaction])
+    @transaction.creditor = from_user
+    @transaction.debtor = to_user
 
+    
     respond_to do |format|
       if @transaction.save
         format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }

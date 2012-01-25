@@ -2,17 +2,17 @@
 
 <p>
   <b>Value:</b>
-  <%= @transaction.value %>
+  $<%= @transaction.value %>
 </p>
 
 <p>
   <b>From user:</b>
-  <%= @transaction.from_user_id %>
+  <%= link_to @transaction.creditor.name, @transaction.creditor %>
 </p>
 
 <p>
   <b>To user:</b>
-  <%= @transaction.to_user_id %>
+  <%= link_to @transaction.debtor.name, @transaction.debtor %>
 </p>
 
 
