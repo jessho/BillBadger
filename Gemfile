@@ -9,8 +9,13 @@ gem 'rails', '3.2.0'
 # Use sqlite when in development
 group :development, :test do
   gem 'sqlite3'
+  gem 'rspec-rails'
 end
 
+# use for testing
+group :test do
+  gem 'capybara'
+end
 
 # Use PostgreSQL when deployed to Heroku
 group :production do
