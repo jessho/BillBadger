@@ -1,4 +1,7 @@
 BillBadger::Application.routes.draw do
+
+  get "static_pages/about"
+
   resources :transactions
 
   resources :users

@@ -2,13 +2,15 @@
 <html>
 <head>
   <title>BillBadger</title>
+  <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen'%>
+  <%= stylesheet_link_tag 'blueprint/print', :media => 'print'%>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
 <%= yield %>
 
 </body>
 </html>
+

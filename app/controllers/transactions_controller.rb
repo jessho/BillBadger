@@ -46,14 +46,14 @@ class TransactionsController < ApplicationController
     # check if users named in transaction exist, if not create new ones
     
     from_user = User.find_by_name(params[:name][:from_user])
-    if !from_user
+    if from_user.nil?
       from_user = User.new(:name => params[:name][:from_user])
       from_user.save
     end
     @transaction.creditor = from_user
     
     to_user = User.find_by_name(params[:name][:to_user])
-    if !to_user
+    if to_user.nil?
       to_user = User.new(:name => params[:name][:to_user])
       to_user.save
     end
