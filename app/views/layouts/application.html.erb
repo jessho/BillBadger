@@ -16,15 +16,21 @@
   <div class ="container">
     <header>
       <%= image_tag("logo.png", alt: "Bill Badger logo", class: "round") %>
-      <nav class="round">
+      <nav class="round left">
         <ul>
          <li><%= link_to "My bills", '#' %></li>
           <li><%= link_to "My account", '#' %></li>
+        </ul>
+      </nav>
+      
+      <nav class="round right">
+        <ul>
           <li><%= link_to "About", '#' %></li>
           <li><%= link_to "Halp!", '#' %></li>
           <li><%= link_to "Sign in", '#' %></li>
         </ul>
       </nav>
+      
     </header>
     <section class="round">
     <%= yield %>

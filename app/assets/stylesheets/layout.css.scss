@@ -3,15 +3,19 @@
 }
 
 body {
-  background: #cff;
+  background: white;
 }
 
 header {
   padding-top: 20px;
+  height: 150px;
+  background: #0BCA2F;
 }
 
 header img {
+  float: left;
   padding: 1em;
+  height: 115px;
 /*  background: white;*/
 }
 
@@ -19,7 +23,8 @@ section {
   margin-top: 1em;
   font-size: 120%;
   padding: 20px;
-  background: white;
+  background: #0BCA2F;
+  clear: both;
 }
 
 section h1 {
@@ -29,15 +34,57 @@ section h1 {
 /* Links */
 
 a {
-  color: #09c;
+  color: #096F1B;
   text-decoration: none;
 }
 
 a:hover {
-  color:#069;
+  color: #096F1B;
   text-decoration: underline;
 }
 
 a:visited {
-  color: #069;
+  color: #096F1B;
+}
+
+/* Navigation*/
+
+nav.left {
+  /*float: left;*/
+  background-color: #0BCA2F;
+  padding: 0 0.7em;
+  white-space: nowrap;
+  font-size: 125%;
+}
+
+nav.right {
+  float: right;
+  background-color: #0BCA2F;
+  padding: 0 0.7em;
+  white-space: nowrap;
+  font-size: 125%;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0.2em 0;
+}
+
+nav ul li a {
+  padding: 0 5px;
+  font-weight: bold;
+}
+
+nav ul li a:visited {
+  color: #096F1B;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
 }
