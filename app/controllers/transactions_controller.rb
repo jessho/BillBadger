@@ -40,24 +40,10 @@ class TransactionsController < ApplicationController
   # POST /transactions
   # POST /transactions.json
   def create
-    
     @transaction = Transaction.new(params[:transaction])
-        
     # check if users named in transaction exist, if not create new ones
-    
-    from_user = User.find_by_name(params[:name][:from_user])
-    if from_user.nil?
-      from_user = User.new(:name => params[:name][:from_user])
-      from_user.save
-    end
-    @transaction.creditor = from_user
-    
-    to_user = User.find_by_name(params[:name][:to_user])
-    if to_user.nil?
-      to_user = User.new(:name => params[:name][:to_user])
-      to_user.save
-    end
-    @transaction.debtor = to_user
+    @transaction.creditor = verify_user(params[:name][:from_user])
+    @transaction.debtor = verify_user(params[:name][:to_user])
               
     respond_to do |format|
       if @transaction.save
@@ -67,6 +53,16 @@ class TransactionsController < ApplicationController
         format.html { render action: "new" }
         format.json { render json: @transaction.errors, status: :unprocessable_entity }
       end
+    end
+  end
+  
+  # helper function that creates a new user if User model doesn't recognize the names
+  def verify_user(name)
+    user = User.find_by_name(name)
+    if user.nil?
+      user = User.create(name: name)
+    else
+      user
     end
   end
 
